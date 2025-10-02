@@ -26,7 +26,7 @@ Storage of information about the store products
 | `name`                | `string`    | Name of the product                             |                 |
 | `price`               | `double`    | Price of the product                            |                 |
 | `status_availability` | `string`    | Indicates if the product is available for sale |                 |
-| `basic_unit`          | `string`    | Unit type (e.g., kg, liter, piece)             |                 |
+| `basic_unit`          | `string`    | Unit type              |                 |
 | `image`               | `string`    | URL or path of the product image               | **Nullable**    |
 | `created_at`          | `timestamp` | Timestamp when the product was created         |                 |
 | `updated_at`          | `timestamp` | Timestamp when the product was last updated    |                 |
