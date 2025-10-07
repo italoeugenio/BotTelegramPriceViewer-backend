@@ -12,7 +12,7 @@ Storage of user information
 | `full_name`  | `string`    | Full name of the user                           |                 |
 | `email`      | `string`    | User's email address, used for login and contact | **Unique**      |
 | `hash`       | `string`    | Password hash for user authentication          |                 |
-| `roles`      | `string`    | Roles assigned to the user                      |                 |
+| `role`       | `string`    | Roles assigned to the user                      |                 |
 | `created_at` | `timestamp` | Timestamp when the user was created            |                 |
 | `updated_at` | `timestamp` | Timestamp when the user was last updated       |                 |
 
