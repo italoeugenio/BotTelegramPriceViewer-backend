@@ -42,7 +42,9 @@ public class UserModel implements UserDetails {
     @Enumerated(EnumType.STRING)
     private UserRole role;
 
-    public UserModel(String email, String password, UserRole role){
+
+    public UserModel(String fullName, String email, String password, UserRole role){
+        this.fullName = fullName;
         this.email = email;
         this.password = password;
         this.role = role;
