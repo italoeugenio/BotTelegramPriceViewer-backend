@@ -1,6 +1,8 @@
 package com.italo.santana.telegram_backend.controller;
 
+import com.italo.santana.telegram_backend.infra.security.TokenService;
 import com.italo.santana.telegram_backend.models.dtos.AuthenticationDTO;
+import com.italo.santana.telegram_backend.models.dtos.LoginResponseDTO;
 import com.italo.santana.telegram_backend.models.dtos.RegisterDTO;
 import com.italo.santana.telegram_backend.models.entities.UserModel;
 import com.italo.santana.telegram_backend.models.repository.UserRepository;
@@ -25,12 +27,15 @@ public class AuthenticationController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private TokenService tokenService;
+
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody @Valid AuthenticationDTO data) {
         var usernamePassword = new UsernamePasswordAuthenticationToken(data.email(), data.password());
         var auth = this.authenticationManager.authenticate(usernamePassword);
-
-        return ResponseEntity.ok().build();
+        var token = tokenService.generateToken((UserModel) auth.getPrincipal());
+        return ResponseEntity.ok(new LoginResponseDTO(token));
     }
 
     @PostMapping("/register")

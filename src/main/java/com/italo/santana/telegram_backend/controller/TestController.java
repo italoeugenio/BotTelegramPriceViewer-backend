@@ -10,14 +10,17 @@ import java.util.List;
 @RequestMapping("test")
 public class TestController {
 
-    @GetMapping("/name")
+    @GetMapping("/owner")
     public List<String> listName(){
         return List.of(
-                "Ítalo",
-                "Kay",
-                "Lunna",
-                "Allany",
-                "Gaby"
+                "Dono"
+        );
+    }
+
+    @GetMapping("/employer")
+    public List<String> listOW (){
+        return List.of(
+                "Funcionário"
         );
     }
 }
