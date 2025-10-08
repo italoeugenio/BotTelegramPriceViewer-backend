@@ -28,8 +28,8 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/test/owner").hasRole("ONWER")
-                        .requestMatchers(HttpMethod.GET, "/test//employer").hasRole("EMPLOYER")
+                        .requestMatchers(HttpMethod.GET, "/test/owner").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/test/employer").hasRole("EMPLOYER")
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)

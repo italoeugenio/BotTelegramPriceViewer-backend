@@ -1,7 +1,7 @@
 package com.italo.santana.telegram_backend.enums;
 
 public enum UserRole {
-    ONWER("admin"),
+    OWNER("admin"),
     EMPLOYER("user");
 
     private final String role;
