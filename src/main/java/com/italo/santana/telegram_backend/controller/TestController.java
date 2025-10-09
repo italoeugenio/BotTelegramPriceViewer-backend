@@ -11,14 +11,14 @@ import java.util.List;
 public class TestController {
 
     @GetMapping("/owner")
-    public List<String> listName(){
+    public List<String> listOwner(){
         return List.of(
                 "Dono"
         );
     }
 
     @GetMapping("/employer")
-    public List<String> listOW (){
+    public List<String> listEmployer (){
         return List.of(
                 "Funcionário"
         );
