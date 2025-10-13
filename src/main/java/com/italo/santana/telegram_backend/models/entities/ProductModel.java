@@ -1,13 +1,24 @@
 package com.italo.santana.telegram_backend.models.entities;
 
+import com.italo.santana.telegram_backend.enums.ProductStatus;
+import com.italo.santana.telegram_backend.enums.ProductUnit;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Generated;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import org.springframework.cglib.core.Local;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.UUID;
+
 
 @Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(of = "id")
 @Table(name = "TB_PRODUCTS")
 public class ProductModel {
     private static final long serialVersion = 1L;
@@ -20,4 +31,21 @@ public class ProductModel {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "price")
+    private BigDecimal price;
+
+    @Column(name = "status_availability")
+    private ProductStatus status;
+
+    @Column(name = "basic_unit")
+    private ProductUnit unit;
+
+    @Column(name = "image")
+    private String image;
+
+    @Column(name = "created_at")
+    private LocalDateTime createAt;
+
+    @Column(name = "updated_at")
+    private LocalDateTime updated_at;
 }
