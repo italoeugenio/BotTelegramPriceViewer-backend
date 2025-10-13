@@ -4,7 +4,6 @@ import com.italo.santana.telegram_backend.models.dtos.ProductResponseDTO;
 import com.italo.santana.telegram_backend.models.dtos.ProductRequestDTO;
 import com.italo.santana.telegram_backend.models.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,17 +19,7 @@ public class ProductController {
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("/get/all")
     public ResponseEntity<List<ProductResponseDTO>> getAll(){
-        return ResponseEntity.ok(productService.getALl());
-    }
-
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
-    @GetMapping("get/{name}")
-    public ResponseEntity<List<ProductResponseDTO>> findByName(@PathVariable("name") String name){
-        List<ProductResponseDTO> products = productService.findByName(name);
-        if(products.isEmpty()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(products);
-        }
-        return ResponseEntity.status(HttpStatus.OK).body(products);
+        return ResponseEntity.ok(productService.getAll());
     }
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -39,6 +28,5 @@ public class ProductController {
         productService.saveProduct(data);
         return;
     }
-
 
 }
