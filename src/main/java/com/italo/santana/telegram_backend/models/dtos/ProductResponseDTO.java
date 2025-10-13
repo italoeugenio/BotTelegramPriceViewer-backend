@@ -18,6 +18,4 @@ public record ProductResponseDTO(
     public ProductResponseDTO(ProductModel product){
         this(product.getId(), product.getName(), product.getPrice(), product.getStatus(), product.getUnit(), product.getImage());
     }
-
-
 }
