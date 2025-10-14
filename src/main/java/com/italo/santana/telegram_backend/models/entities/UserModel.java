@@ -54,7 +54,6 @@ public class UserModel implements UserDetails {
         this.fullName = data.fullName();
         this.email = data.email();
         this.password = data.password();
-        this.role = data.userRole();
     }
 
     @Override

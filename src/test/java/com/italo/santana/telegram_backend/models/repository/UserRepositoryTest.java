@@ -25,7 +25,7 @@ class UserRepositoryTest {
     @Test
     @DisplayName("Should return true, if exist a user in database")
     void existsAnyUserSuccess() {
-        RegisterDTO data = new RegisterDTO("Ítalo Santana", "italoeugenio539@gmail.com", "12345", UserRole.OWNER);
+        RegisterDTO data = new RegisterDTO("Ítalo Santana", "italoeugenio539@gmail.com", "12345");
         this.createUser(data);
     }
 

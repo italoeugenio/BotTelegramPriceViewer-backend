@@ -1,5 +1,6 @@
 package com.italo.santana.telegram_backend.controller;
 
+import com.italo.santana.telegram_backend.enums.UserRole;
 import com.italo.santana.telegram_backend.infra.security.TokenService;
 import com.italo.santana.telegram_backend.models.dtos.AuthenticationDTO;
 import com.italo.santana.telegram_backend.models.dtos.LoginResponseDTO;
@@ -43,7 +44,11 @@ public class AuthenticationController {
         if (this.userRepository.findByEmail(data.email()) != null) return ResponseEntity.badRequest().build();
 
         String encryptedPassword = new BCryptPasswordEncoder().encode(data.password());
-        UserModel newUser = new UserModel(data.fullName(),data.email(), encryptedPassword, data.userRole());
+        UserRole role = UserRole.EMPLOYER;
+        if(!userRepository.existsAnyUser()){
+            role = UserRole.OWNER;
+        }
+        UserModel newUser = new UserModel(data.fullName(),data.email(), encryptedPassword, role);
         this.userRepository.save(newUser);
 
         return ResponseEntity.ok().build();
