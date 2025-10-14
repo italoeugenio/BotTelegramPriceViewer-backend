@@ -57,5 +57,7 @@ public class ProductModel {
         this.status = data.status();
         this.unit = data.unit();
         this.image = data.image();
+        this.createAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
     }
 }
