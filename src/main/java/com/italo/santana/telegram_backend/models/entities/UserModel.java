@@ -1,6 +1,7 @@
 package com.italo.santana.telegram_backend.models.entities;
 
 import com.italo.santana.telegram_backend.enums.UserRole;
+import com.italo.santana.telegram_backend.models.dtos.RegisterDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -47,6 +48,13 @@ public class UserModel implements UserDetails {
         this.email = email;
         this.password = password;
         this.role = role;
+    }
+
+    public UserModel(RegisterDTO data){
+        this.fullName = data.fullName();
+        this.email = data.email();
+        this.password = data.password();
+        this.role = data.userRole();
     }
 
     @Override

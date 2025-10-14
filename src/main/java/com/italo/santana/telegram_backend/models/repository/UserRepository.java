@@ -10,8 +10,7 @@ import java.util.UUID;
 public interface UserRepository extends JpaRepository<UserModel, UUID> {
     UserDetails findByEmail(String email);
 
-    @Query('select u.email from tb_users u limit 1')
-
-
+    @Query(value = "select exists(select 1 from tb_products)", nativeQuery = true)
+    Boolean existsAnyUser();
 
 }
